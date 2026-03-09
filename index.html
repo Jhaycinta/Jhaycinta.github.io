@@ -29,33 +29,55 @@ align-items:center;
 padding:20px 10%;
 background:white;
 box-shadow:0 2px 10px rgba(0,0,0,0.05);
+position:relative;
 }
 
 nav h2{
 color:#3c5bff;
 }
 
-nav a{
+/* NAV LINKS */
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
 text-decoration:none;
-margin-left:20px;
 color:#333;
 font-weight:500;
+}
+
+/* HAMBURGER */
+
+.menu-icon{
+display:none;
+font-size:26px;
+cursor:pointer;
 }
 
 /* HERO */
 
 .hero{
-height:70vh;
 display:flex;
 flex-direction:column;
-justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
+padding:80px 20px;
+}
+
+.profile-img{
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:20px;
+border:5px solid #3c5bff;
 }
 
 .hero h1{
-font-size:48px;
+font-size:40px;
 color:#3c5bff;
 }
 
@@ -76,7 +98,7 @@ border-radius:6px;
 cursor:pointer;
 }
 
-/* SECTION */
+/* SECTIONS */
 
 section{
 padding:70px 10%;
@@ -94,7 +116,6 @@ color:#3c5bff;
 max-width:800px;
 margin:auto;
 text-align:center;
-font-size:17px;
 }
 
 /* SERVICES */
@@ -111,10 +132,6 @@ padding:25px;
 border-radius:10px;
 box-shadow:0 4px 12px rgba(0,0,0,0.08);
 text-align:center;
-}
-
-.card h3{
-margin-bottom:10px;
 }
 
 /* SKILLS */
@@ -188,6 +205,32 @@ padding:20px;
 margin-top:40px;
 }
 
+/* MOBILE NAVBAR */
+
+@media(max-width:768px){
+
+.nav-links{
+display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+right:10%;
+background:white;
+width:200px;
+padding:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.nav-links.show{
+display:flex;
+}
+
+.menu-icon{
+display:block;
+}
+
+}
+
 </style>
 </head>
 
@@ -196,9 +239,14 @@ margin-top:40px;
 <!-- NAVBAR -->
 
 <nav>
+
 <h2>Jacinta</h2>
 
-<div>
+<div class="menu-icon" onclick="toggleMenu()">
+☰
+</div>
+
+<div class="nav-links" id="navLinks">
 <a href="#about">About</a>
 <a href="#services">Services</a>
 <a href="#certificate">Certificate</a>
@@ -211,16 +259,15 @@ margin-top:40px;
 
 <div class="hero">
 
+<img src="jhaycinta.jpg" class="profile-img" alt="Jacinta">
+
 <h1>Eze Chinwekene Jacinta</h1>
 
 <p>
-Professional Virtual Assistant helping entrepreneurs and businesses stay
-organized, productive and stress-free.
+Professional Virtual Assistant helping entrepreneurs and businesses stay organized and productive.
 </p>
 
-<button onclick="location.href='#contact'">
-Hire Me
-</button>
+<button onclick="location.href='#contact'">Hire Me</button>
 
 </div>
 
@@ -233,16 +280,13 @@ Hire Me
 <div class="about">
 
 <p>
-Hello! I'm Jacinta, a trained Virtual Assistant passionate about helping
-business owners manage their daily operations efficiently.
+Hello! I'm Jacinta, a trained Virtual Assistant passionate about helping business owners manage their daily operations efficiently.
 </p>
 
 <br>
 
 <p>
-I completed an Advanced 6-Week Virtual Assistant Bootcamp where I gained
-hands-on experience in administrative support, productivity tools,
-communication, and online business management.
+I completed an Advanced 6-Week Virtual Assistant Bootcamp where I gained experience in administrative support, productivity tools, communication, and online business management.
 </p>
 
 </div>
@@ -259,17 +303,17 @@ communication, and online business management.
 
 <div class="card">
 <h3>Email Management</h3>
-<p>Organizing inboxes and managing communication.</p>
+<p>Managing inboxes and communication.</p>
 </div>
 
 <div class="card">
 <h3>Calendar Management</h3>
-<p>Scheduling meetings and managing appointments.</p>
+<p>Scheduling meetings and reminders.</p>
 </div>
 
 <div class="card">
 <h3>Data Entry</h3>
-<p>Accurate spreadsheet and data management.</p>
+<p>Accurate spreadsheet management.</p>
 </div>
 
 <div class="card">
@@ -284,7 +328,7 @@ communication, and online business management.
 
 <div class="card">
 <h3>Administrative Support</h3>
-<p>Helping businesses stay organized and efficient.</p>
+<p>Helping businesses stay organized.</p>
 </div>
 
 </div>
@@ -318,12 +362,9 @@ communication, and online business management.
 
 <div class="certificate">
 
-<p>
-Advanced 6 Weeks Virtual Assistant Bootcamp Certificate
-</p>
+<p>Advanced 6 Weeks Virtual Assistant Bootcamp Certificate</p>
 
-<!-- Replace the image below with your certificate image -->
-<img src="certificate.jpg" alt="Virtual Assistant Certificate">
+<img src="certificate.jpg" alt="Certificate">
 
 </div>
 
@@ -339,13 +380,9 @@ Advanced 6 Weeks Virtual Assistant Bootcamp Certificate
 
 <p>Email: ezejacintachinwekene@gmail.com</p>
 
-<a href="mailto:ezejacintachinwekene@gmail.com">
-Send Email
-</a>
+<a href="mailto:ezejacintachinwekene@gmail.com">Send Email</a>
 
-<a href="https://wa.me/2349054979730">
-Chat on WhatsApp
-</a>
+<a href="https://wa.me/2349054979730">Chat on WhatsApp</a>
 
 </div>
 
@@ -359,5 +396,13 @@ Chat on WhatsApp
 
 </footer>
 
+<script>
+
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("show");
+}
+
+</script>
+
 </body>
-  </html>
+</html>
