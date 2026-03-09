@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Jacinta | Virtual Assistant Portfolio</title>
+
+<!-- FONT AWESOME FOR ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
@@ -12,6 +16,7 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial, Helvetica, sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
@@ -29,14 +34,17 @@ align-items:center;
 padding:20px 10%;
 background:white;
 box-shadow:0 2px 10px rgba(0,0,0,0.05);
-position:relative;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
-nav h2{
+.logo{
+font-size:22px;
+font-weight:bold;
 color:#3c5bff;
+text-decoration:none;
 }
-
-/* NAV LINKS */
 
 .nav-links{
 display:flex;
@@ -47,9 +55,12 @@ gap:20px;
 text-decoration:none;
 color:#333;
 font-weight:500;
+transition:0.3s;
 }
 
-/* HAMBURGER */
+.nav-links a:hover{
+color:#3c5bff;
+}
 
 .menu-icon{
 display:none;
@@ -65,15 +76,17 @@ flex-direction:column;
 align-items:center;
 text-align:center;
 padding:80px 20px;
+animation:fadeDown 1s ease;
 }
 
 .profile-img{
-width:150px;
-height:150px;
+width:160px;
+height:160px;
 border-radius:50%;
 object-fit:cover;
 margin-bottom:20px;
 border:5px solid #3c5bff;
+animation:zoomIn 1s ease;
 }
 
 .hero h1{
@@ -96,6 +109,11 @@ color:white;
 font-size:16px;
 border-radius:6px;
 cursor:pointer;
+transition:0.3s;
+}
+
+.hero button:hover{
+transform:scale(1.05);
 }
 
 /* SECTIONS */
@@ -108,14 +126,6 @@ padding:70px 10%;
 text-align:center;
 margin-bottom:40px;
 color:#3c5bff;
-}
-
-/* ABOUT */
-
-.about{
-max-width:800px;
-margin:auto;
-text-align:center;
 }
 
 /* SERVICES */
@@ -132,6 +142,12 @@ padding:25px;
 border-radius:10px;
 box-shadow:0 4px 12px rgba(0,0,0,0.08);
 text-align:center;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
 /* SKILLS */
@@ -148,6 +164,11 @@ background:white;
 padding:20px;
 border-radius:8px;
 box-shadow:0 4px 12px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.skill:hover{
+transform:scale(1.05);
 }
 
 /* CERTIFICATE */
@@ -162,6 +183,11 @@ max-width:700px;
 margin-top:20px;
 border-radius:10px;
 box-shadow:0 10px 25px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.certificate img:hover{
+transform:scale(1.02);
 }
 
 /* CONTACT */
@@ -178,6 +204,11 @@ background:#3c5bff;
 color:white;
 border-radius:6px;
 text-decoration:none;
+transition:0.3s;
+}
+
+.contact a:hover{
+transform:scale(1.05);
 }
 
 /* WHATSAPP BUTTON */
@@ -188,11 +219,20 @@ bottom:20px;
 right:20px;
 background:#25D366;
 color:white;
-padding:15px 18px;
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
 border-radius:50%;
-font-size:22px;
+font-size:30px;
 text-decoration:none;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
+box-shadow:0 4px 15px rgba(0,0,0,0.25);
+transition:0.3s;
+}
+
+.whatsapp:hover{
+transform:scale(1.1);
 }
 
 /* FOOTER */
@@ -205,7 +245,31 @@ padding:20px;
 margin-top:40px;
 }
 
-/* MOBILE NAVBAR */
+/* ANIMATIONS */
+
+@keyframes fadeDown{
+from{
+opacity:0;
+transform:translateY(-40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes zoomIn{
+from{
+transform:scale(0.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+/* MOBILE NAV */
 
 @media(max-width:768px){
 
@@ -240,10 +304,10 @@ display:block;
 
 <nav>
 
-<h2>Jacinta</h2>
+<a href="#" class="logo">Jacinta</a>
 
 <div class="menu-icon" onclick="toggleMenu()">
-☰
+<i class="fas fa-bars"></i>
 </div>
 
 <div class="nav-links" id="navLinks">
@@ -277,19 +341,12 @@ Professional Virtual Assistant helping entrepreneurs and businesses stay organiz
 
 <h2 class="section-title">About Me</h2>
 
-<div class="about">
-
-<p>
-Hello! I'm Jacinta, a trained Virtual Assistant passionate about helping business owners manage their daily operations efficiently.
+<p style="text-align:center; max-width:800px; margin:auto;">
+Hello! I'm Jacinta, a trained Virtual Assistant passionate about helping
+business owners manage their daily operations efficiently. I completed an
+Advanced 6-Week Virtual Assistant Bootcamp where I gained experience in
+administrative support, communication, and productivity tools.
 </p>
-
-<br>
-
-<p>
-I completed an Advanced 6-Week Virtual Assistant Bootcamp where I gained experience in administrative support, productivity tools, communication, and online business management.
-</p>
-
-</div>
 
 </section>
 
@@ -318,7 +375,7 @@ I completed an Advanced 6-Week Virtual Assistant Bootcamp where I gained experie
 
 <div class="card">
 <h3>Internet Research</h3>
-<p>Finding valuable information for businesses.</p>
+<p>Finding valuable information.</p>
 </div>
 
 <div class="card">
@@ -335,25 +392,6 @@ I completed an Advanced 6-Week Virtual Assistant Bootcamp where I gained experie
 
 </section>
 
-<!-- SKILLS -->
-
-<section>
-
-<h2 class="section-title">Skills</h2>
-
-<div class="skills">
-
-<div class="skill">Communication</div>
-<div class="skill">Time Management</div>
-<div class="skill">Google Workspace</div>
-<div class="skill">Microsoft Office</div>
-<div class="skill">Online Research</div>
-<div class="skill">Organization</div>
-
-</div>
-
-</section>
-
 <!-- CERTIFICATE -->
 
 <section id="certificate">
@@ -364,7 +402,7 @@ I completed an Advanced 6-Week Virtual Assistant Bootcamp where I gained experie
 
 <p>Advanced 6 Weeks Virtual Assistant Bootcamp Certificate</p>
 
-<img src="certificate.jpg" alt="Certificate">
+<img src="certificate.jpg" alt="certificate">
 
 </div>
 
@@ -388,7 +426,11 @@ I completed an Advanced 6-Week Virtual Assistant Bootcamp where I gained experie
 
 </section>
 
-<a class="whatsapp" href="https://wa.me/2349054979730">W</a>
+<!-- FLOATING WHATSAPP BUTTON -->
+
+<a class="whatsapp" href="https://wa.me/2349054979730" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
 
 <footer>
 
